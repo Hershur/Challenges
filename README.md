@@ -1,3 +1,3 @@
 # Challenges
 
-Progranning challenges
+Programming challenges
