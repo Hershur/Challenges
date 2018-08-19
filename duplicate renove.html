@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+<script>
+function removeDuplicates(str) {
+    var returnObject = {
+        uniques : "",
+        duplicates : 0
+    };
+
+    for (var i = 0; i < str.length; i++){
+        if (returnObject.uniques.indexOf(str[i]) < 0) {
+            returnObject.uniques += str[i];
+        } else {
+            returnObject.duplicates++;
+        }
+    }
+
+    returnObject.uniques = returnObject.uniques.replace(/[&\/\\#,_+()$~%.'":*?<>]/g, '');
+    returnObject.uniques = returnObject.uniques.split('').sort().join('');
+
+    return returnObject;
+}
+
+
+console.log(removeDuplicates('tht#elexx__ash?'));
+
+
+</script>
+
+
+
+
+
+
+
+
+function removeDuplicates(str) {
+  var uniques = "";
+  var duplicates = 0;
+
+  for (var i = 0; i < str.length; i++) {
+    if (uniques.indexOf(str[i]) == -1) {
+      uniques += str[i];
+    } else {
+      duplicates++;
+    }
+  }
+  uniques = uniques.replace(/[&\/\\#,_+()$~%.'":*?<>]/g, '').split('').sort().join('')
+
+  return {
+    uniques,
+    duplicates
+  }
+}
+
+
+const testString = 'th#elex_ash?';
+const expectedOutput = {
+  uniques: 'aehlstx',
+  duplicates: 2
+};
+
+console.log(removeDuplicates(testString));
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+<script>
+function longest(sentence){
+	var str = sentence.split(" ");
+	var longestWord = 0;
+	var word = null;
+	for (var i=0; i<str.length; i++){
+		if(longestWord < str[i].length){
+			longestWord = str[i].length;
+			word = str[i];
+		}
+	}
+	return word;
+}
+console.log(longest("This is Andela"));
+console.log(longest("Brilliance is evenly distributed"));
+
+</script>
+
+
+</body>
+</html>

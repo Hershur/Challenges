@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+  <title> 3-Digits Armstrong Numbers | Andela </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Author" content="Assurance Fagbolagun" />
+  <meta http-equiv="Author" content="type=text/html, charset=UTF-8" />
+  
+  <style> 
+	* { font-family: Proxima Nova Soft;}
+	
+  header div {
+	  background-color: #77439E;
+	  background-size: cover;
+	  text-align: center;
+	  color: #FFFFFF;
+	  font-size: 40px;
+	  font-weight: 600;
+	  min-height: 60px;
+	  padding: 15px;
+	  margin-bottom: 15px;
+	  
+  }
+  
+  .container {
+	  background-color: #f2f2f2; 
+	  padding: 15px;
+	  border-radius: 4px;
+	  margin: auto;
+	  width: 90%;
+	  min-height: 150px;
+  
+  }
+  
+  #enter {
+	  float: left;
+	  margin: 10px;
+	  color: #77439E;
+	  font-size: 25px;
+	  font-weight: 600;
+	  
+  }
+  
+  
+  input:focus {background-color: rgba(149, 149, 149, 0.4);}
+  input {
+	  background-color: #F7F0FC;
+	  width: 70%;
+	  border-radius: 8px;
+	  border-width: 2px;
+	  border-color: #77439E;
+	  border-style: solid;
+	  height: 40px;
+	  margin-bottom: 20px;
+	  position: relative;
+	  float: left;
+	  outline: none;
+	  color: #77439E;
+	  font-size: 18px;
+	  font-weight: 700;
+	  padding-left: 5px;
+	  
+	 
+  }
+  
+  #screen {display: none;}
+  
+  button:hover  {
+	  background-color: #FFFFFF;
+	  color: #77439E;
+	  padding-right: 5px;
+  }
+  
+  button {
+	  position: relative;
+	  float: right;
+	  top: 2px;
+	  color: #FFFFFF;
+	  background-color: #77439E;
+	  border-radius: 6px;
+	  border-style: solid;
+	  border-color: #77439E;
+	  height: 45px;
+	  font-size: 25px;
+	  outline: none;
+	  cursor: pointer;
+	  padding: 5px;
+	  box-sizing: border-box;
+	  
+	  
+  }
+  
+  .disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+  }
+
+  footer div {
+	  background-color: #77439E;
+	  color: #FFFFFF;
+	  padding: 22px;
+	  width: 100%;
+	  min-height: 70px;
+	  box-sizing: border-box;
+	  font-size: 20px;
+	  text-align: center;
+	  margin-top: 25px;
+	  
+  }
+  
+  div#result, div#results {
+	  color: #77439E;
+	  font-size: 20px;
+	  text-align: center;
+	  position: relative;
+	  
+  }
+  
+  
+  
+  /*Media Queries*/
+  
+  @media (max-width: 550px){
+  
+	header div {
+		font-size: 30px;
+		padding: 12px;
+		min-height: 50px;
+	}
+  
+	input {width: 100%;}
+		
+
+  }
+
+  </style>
+</head>   
+
+<body> 
+  <header>
+    <div id="strong"> Armstrong Numbers </div>
+  </header>
+  <div class="container">
+    <div>  
+	  <span id="enter"> Please enter any number: </span><input id="armstrong" onkeyup="putIn()" /> <br id="screen"/>
+  
+      <button id="button" onclick="check()"> Check 	&#187;</button> 
+	</div>  <br/>
+    
+  </div>
+  <div id="result">		</div>
+  <div id="results">	</div>
+  
+  
+  
+  <footer>
+	<div> &copy; Andela Technical Challenge </div>
+  <footer>
+  
+  <script>
+	
+	function putIn() {
+	
+	var arm = document.getElementById("armstrong").value.length;
+	
+	
+	if (arm != 3)  {document.getElementById("results").innerHTML = "Please enter a three-digit number! " + "You have entered a " + arm +"-digit number"; }
+	
+	else document.getElementById("results").innerHTML = "You can check for Armstrong now!!"; document.getElementById("results").style.color = "#42140B"; document.getElementById("button").classList.remove("disabled");
+	
+	if (arm != 3) document.getElementById("button").classList.add("disabled");
+	
+	if (arm == 0) document.getElementById("results").style.display = "none";
+	
+	
+	}	
+  
+  
+  function check(){
+	  
+	  
+	  document.getElementById("results").style.display = "none";
+	  
+	  var arms = document.getElementById("armstrong").value.length;
+	  
+	  var arm = 0,a,b,c,d,num;
+	  num = Number(document.getElementById("armstrong").value);
+	  
+	  
+
+	  temp = num;
+	  while(temp > 0){
+		  a = temp % 10;
+		  temp = parseInt(temp / 10); 
+		  arm = arm + a * a * a;
+	  }
+	  
+	  if (!arm) {return;}
+	  if(arm == num){
+		  document.getElementById("result").innerHTML = "&#10004; Yaay, Armstrong number!!";
+		  document.getElementById("result").style.color = "green";
+	  }
+	  
+	  
+	  else if (arms != 3) {
+		  document.getElementById("result").innerHTML = "&#9888; You cannot proceed, you have to enter a three-digit number";
+		  document.getElementById("result").style.color = "#E44235"
+	 }
+	  
+	  else {
+		  document.getElementById("result").innerHTML ="&#10006; Oops, Not Armstrong number!!";
+		  document.getElementById("result").style.color = "red";
+	  }
+  }
+  
+  
+  
+
+	
+  </script> 
+  
+</body>

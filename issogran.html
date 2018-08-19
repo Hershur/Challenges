@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+<script>
+
+
+
+function isIsogram(str){
+
+
+
+if (typeof str !== 'string'){
+ return false;
+ }
+
+ if ( str === '' ||  str === null){
+ return false;
+ }
+
+var passing = true;
+
+var word = str.toLowerCase();
+
+var counts = {};
+
+for (i = 0; i <= word.length; i++) {
+
+var letter = word.charAt(i);
+
+
+
+if(counts[letter]) {
+ counts[letter] = 1 + counts[letter];
+ } else {
+ counts[letter] = 1;
+ }
+
+
+
+if(counts[letter] > 1) {
+ return passing = false;
+ }
+
+}
+
+
+return passing;
+
+}
+
+
+
+
+console.log(isIsogram('Dermatoglyphics'));
+console.log(isIsogram('Benin'));
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
